@@ -65,6 +65,8 @@
 
 ***3. Register domain via route53 and use custom domain name***
 
+***4. Configure an error document***
+
 ### Alternative solutions that you could have taken but didn’t and explain why
 
 ***1. EC2 + Nginx***
@@ -95,3 +97,6 @@
 ***5. Add cloudfront and attach WAF to it***
 - implement caching via cloudfront and WAF for DDOS protection etc.
 - use HTTPS only
+
+***6. Configure an error document***
+- This will help do display custom based error message instead of s3 error message
