@@ -21,14 +21,14 @@
 
 4. **Disable the block public access**
     ```bash
-   aws s3api put-public-access-block \
-  --bucket your-bucket-name \
-  --public-access-block-configuration '{
-    "BlockPublicAcls": false,
-    "IgnorePublicAcls": false,
-    "BlockPublicPolicy": false,
-    "RestrictPublicBuckets": false
-  }'
+        aws s3api put-public-access-block \
+        --bucket your-bucket-name \
+        --public-access-block-configuration '{
+            "BlockPublicAcls": false,
+            "IgnorePublicAcls": false,
+            "BlockPublicPolicy": false,
+            "RestrictPublicBuckets": false
+        }'
    ```
 
 6. **Set Bucket Policy for Public Access**
@@ -57,44 +57,41 @@
    - Direct S3 URL: `http://your-bucket-name.s3-website-{region}.amazonaws.com`
 
 
-**What else you would do with your website, and how you would go about doing it if you had more time**
+### What else you would do with your website, and how you would go about doing it if you had more time
 
-### 1. Use Infrastructure as Code to deploy the aws infrastructure.
+***1. Use Infrastructure as Code to deploy the aws infrastructure***
 
-### 2. Add Cloudfront with SSL certificate and enable caching
+***2. Add Cloudfront with SSL certificate and enable caching***
 
-### 3. Register domain via route53 and use custom domain name
+***3. Register domain via route53 and use custom domain name***
 
-**Alternative solutions that you could have taken but didn’t and explain why.**
+### Alternative solutions that you could have taken but didn’t and explain why
 
-### 1. EC2 + Nginx
+***1. EC2 + Nginx***
 - Not sutiable for static content
 - Higher cost
 - Need to manager the EC2 server for security patching etc.
 
-### 2.ECS/EKS
+***2.ECS/EKS***
 - Not needed for static HTML, high complexity
 
-***What would be required to make this a production grade website that would be developed by various development teams. The more detail, the better!***
+### What would be required to make this a production grade website that would be developed by various development teams. The more detail, the better!
 
-### 1. Infrastructure as Code
+***1. Infrastructure as Code***
 - All the resources will be created via IAC
 
-### 2. CI/CD pipelines
+***2. CI/CD pipelines***
 - The IAC code will be stored in Git repository, Will help in version control
 - Implement code review, build, test and deploy stages
 - branch protection rules
 - PR based deployments
 
-### 3. Environment based deployments
+***3. Environment based deployments***
 - Separate AWS accounts for dev/stage/prod
 
-### 4. Use custom domain
+***4. Use custom domain***
 - use Route 53 for DNS and ACM for certificate
 
-### 5. Add cloudfront and attach WAF to it.
+***5. Add cloudfront and attach WAF to it***
 - implement caching via cloudfront and WAF for DDOS protection etc.
 - use HTTPS only
-
-
-
