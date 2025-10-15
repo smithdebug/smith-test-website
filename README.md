@@ -6,13 +6,15 @@
    ```bash
    aws s3 mb s3://your-bucket-name
    ```
+2. **create index.htlm file with required content**
 
-2. **Upload the HTML file to s3**
+
+3. **Upload the HTML file to s3**
    ```bash
    aws s3 cp index.html s3://your-bucket-name/
    ```
 
-3. **Enable static website hosting on s3**
+4. **Enable static website hosting on s3**
    ```bash
    aws s3 website s3://your-bucket-name/ --index-document index.html
    ```
@@ -29,7 +31,7 @@
   }'
    ```
 
-5. **Set Bucket Policy for Public Access**
+6. **Set Bucket Policy for Public Access**
   Create a file `bucket-policy.json`:
    ```json
    {
@@ -51,7 +53,7 @@
    aws s3api put-bucket-policy --bucket your-bucket-name --policy file://bucket-policy.json
    ```
 
-6. **Access the website**
+7. **Accessing the website**
    - Direct S3 URL: `http://your-bucket-name.s3-website-{region}.amazonaws.com`
 
 
@@ -93,3 +95,6 @@
 ### 5. Add cloudfront and attach WAF to it.
 - implement caching via cloudfront and WAF for DDOS protection etc.
 - use HTTPS only
+
+
+
